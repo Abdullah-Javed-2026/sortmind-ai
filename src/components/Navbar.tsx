@@ -84,23 +84,39 @@ export const Navbar: React.FC = () => {
       <div className="navbar-floating-wrapper">
         <header className={`navbar-floating-inner ${isScrolled ? 'scrolled' : 'at-top'}`}>
           
-          {/* Left: Brand Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <img
-              src="/logo.png"
-              alt="SortMind AI"
-              className="navbar-brand-logo"
-              style={{
-                height: '34px',
-                width: 'auto',
-                maxHeight: '34px',
-                objectFit: 'contain',
-                display: 'block',
-              }}
-            />
-          </Link>
+          {/* Left: Minimalist Hamburger Menu Trigger + Brand Logo */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            {/* Minimalist Hamburger Menu Trigger (Before the logo) */}
+            <button
+              id="main-hamburger-btn"
+              type="button"
+              className={`hamburger-toggle-btn ${menuOpen ? 'active' : ''}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              title="Navigation Menu"
+            >
+              {menuOpen ? <X size={17} /> : <Menu size={17} />}
+              <span className="hamburger-btn-label">Menu</span>
+            </button>
 
-          {/* Right: Theme Toggle + Organize CTA + Minimalist Hamburger Menu Button */}
+            {/* Brand Logo (beside hamburger button) */}
+            <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+              <img
+                src="/logo.png"
+                alt="SortMind AI"
+                className="navbar-brand-logo"
+                style={{
+                  height: '34px',
+                  width: 'auto',
+                  maxHeight: '34px',
+                  objectFit: 'contain',
+                  display: 'block',
+                }}
+              />
+            </Link>
+          </div>
+
+          {/* Right: Theme Toggle + Organize CTA */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
             
             {/* Light / Dark Mode Toggle Button */}
@@ -127,19 +143,6 @@ export const Navbar: React.FC = () => {
               <Download size={15} />
               <span>Organize Files</span>
             </Link>
-
-            {/* Minimalist Hamburger Menu Trigger (Active on all screen sizes) */}
-            <button
-              id="main-hamburger-btn"
-              type="button"
-              className={`hamburger-toggle-btn ${menuOpen ? 'active' : ''}`}
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-              title="Navigation Menu"
-            >
-              {menuOpen ? <X size={17} /> : <Menu size={17} />}
-              <span className="hamburger-btn-label">Menu</span>
-            </button>
           </div>
         </header>
       </div>
