@@ -139,19 +139,19 @@ export const Footer: React.FC = () => {
             >
               Organize &amp; Sort
             </h4>
-            <a href="#workspace" className="footer-nav-link">
+            <a href="/workspace" className="footer-nav-link">
               Smart Subfolder Sorting
             </a>
-            <a href="#workspace" className="footer-nav-link">
+            <a href="/workspace" className="footer-nav-link">
               Extension Route Rules
             </a>
-            <a href="#workspace" className="footer-nav-link">
+            <a href="/workspace" className="footer-nav-link">
               In-Memory ZIP Generator
             </a>
-            <a href="#workspace" className="footer-nav-link">
+            <a href="/workspace" className="footer-nav-link">
               Duplicate Detection
             </a>
-            <a href="#workspace" className="footer-nav-link">
+            <a href="/workspace" className="footer-nav-link">
               Batch Folder Renamer
             </a>
           </div>
