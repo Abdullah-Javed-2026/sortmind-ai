@@ -64,7 +64,7 @@ export const FeaturesGrid: React.FC = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
           gap: '1.25rem',
           marginBottom: '2rem',
         }}
@@ -121,7 +121,7 @@ export const FeaturesGrid: React.FC = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
           gap: '1.25rem',
           padding: '1.75rem',
           backgroundColor: 'var(--card)',

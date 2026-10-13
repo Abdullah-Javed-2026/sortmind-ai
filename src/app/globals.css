@@ -910,6 +910,43 @@ body {
 }
 
 /* ==========================================================================
+   FLOATING NAVBAR (Mobile & Tablet)
+   ========================================================================== */
+.navbar-floating-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.65rem 1rem;
+  pointer-events: none;
+  display: none; /* Hidden on Desktop (> 1024px) by default */
+}
+
+.navbar-floating-inner {
+  pointer-events: auto;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5rem;
+  padding: 0 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ==========================================================================
    MINIMALIST HAMBURGER MENU & SLIDE-OUT DRAWER
    ========================================================================== */
 .hamburger-toggle-btn {
@@ -1245,44 +1282,111 @@ body {
   white-space: nowrap;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 940px) {
-  .hero-split-wrapper {
-    grid-template-columns: 1fr;
-    border-radius: 0;
-    margin: 0.5rem auto 2rem auto;
+/* ==========================================================================
+   RECOMMENDED RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   ========================================================================== */
+
+/* Tablet & Mobile Breakpoint (<= 1024px) */
+@media (max-width: 1024px) {
+  /* Activate Floating Navbar with Minimalist Hamburger Menu */
+  .navbar-floating-wrapper {
+    display: block !important;
   }
+
+  /* In Hero Section, hide the desktop-only sidebar and desktop-only topbar buttons */
   .hero-split-nav-col {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 0 0 1.25rem 0;
+    display: none !important;
   }
+
+  .hero-content-topbar {
+    display: none !important;
+  }
+
+  /* Single Column Full-Width Flow */
+  .hero-split-wrapper {
+    grid-template-columns: 1fr !important;
+    border-radius: 0;
+    margin: 4.25rem auto 2rem auto !important;
+    padding-top: 0 !important;
+  }
+
   .hero-split-content-col {
-    padding: 1.5rem 0 1rem 0;
+    padding: 0.5rem 0 1.5rem 0 !important;
   }
-  .hero-nav-list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-  .hero-nav-item {
-    border-bottom: none;
-    padding: 0.45rem 0.85rem;
-    background-color: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
+
+  /* Enable mobile hamburger button in Workspace Topbar */
+  .mobile-menu-btn {
+    display: flex !important;
   }
 }
 
+/* Small Tablet & Mobile Phone Breakpoint (<= 640px) */
 @media (max-width: 640px) {
+  .navbar-floating-wrapper {
+    padding: 0.45rem 0.65rem;
+  }
+
+  .navbar-floating-inner {
+    height: 3.25rem;
+    padding: 0 0.75rem;
+  }
+
+  /* Keep mobile navbar super clean on small screens */
+  .navbar-cta-btn {
+    display: none !important;
+  }
+
+  .hamburger-btn-label {
+    display: none !important;
+  }
+
+  .hero-split-wrapper {
+    margin-top: 3.85rem !important;
+  }
+
+  .hero-content-headline {
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem) !important;
+    line-height: 1.15;
+  }
+
+  .hero-content-subtext {
+    font-size: 0.9rem !important;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-interactive-card {
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Stack 3 focus items gracefully on phones */
   .hero-focus-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 0.65rem;
   }
+
+  .hero-focus-cta-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  /* Centered Checklist Signals on Phones */
   .hero-signals-bar {
-    gap: 0.75rem 1.25rem;
+    gap: 0.65rem 1.15rem;
     justify-content: center;
+    font-size: 0.775rem;
+  }
+}
+
+/* Extra-small screens (<= 380px) */
+@media (max-width: 380px) {
+  .hero-content-headline {
+    font-size: 1.7rem !important;
+  }
+  .hero-interactive-card {
+    padding: 0.85rem;
   }
 }
 

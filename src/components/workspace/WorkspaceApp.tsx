@@ -65,7 +65,6 @@ export const WorkspaceApp: React.FC = () => {
               className="theme-toggle-btn mobile-menu-btn"
               onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
               aria-label="Toggle workspace sidebar"
-              style={{ display: 'none' }}
             >
               {mobileSidebarOpen ? <X size={16} /> : <Menu size={16} />}
             </button>
