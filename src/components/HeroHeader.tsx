@@ -180,49 +180,39 @@ export const HeroHeader: React.FC = () => {
           {/* Interactive Action Card (Matching the bottom filter card of the demo image) */}
           <div className="hero-interactive-card">
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--subtle-foreground)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                ORGANIZATION FOCUS
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 600, color: 'var(--foreground)' }}>
-                <FolderTree size={15} color="var(--primary)" />
-                <span>Smart Subdirectories</span>
+            {/* The 3 Focus Items displayed horizontally in a row */}
+            <div className="hero-focus-row">
+              <div className="hero-focus-item">
+                <span className="hero-focus-label">ORGANIZATION FOCUS</span>
+                <div className="hero-focus-val">
+                  <FolderTree size={15} color="var(--primary)" />
+                  <span>Smart Subdirectories</span>
+                </div>
               </div>
-            </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--subtle-foreground)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                PROCESSING ENGINE
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 600, color: 'var(--foreground)' }}>
-                <Cpu size={15} color="#10b981" />
-                <span>100% Client In-Memory</span>
+              <div className="hero-focus-item">
+                <span className="hero-focus-label">PROCESSING ENGINE</span>
+                <div className="hero-focus-val">
+                  <Cpu size={15} color="#10b981" />
+                  <span>100% Client In-Memory</span>
+                </div>
               </div>
-            </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--subtle-foreground)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                EXPORT FORMAT
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', fontWeight: 600, color: 'var(--foreground)' }}>
-                <HardDrive size={15} color="#f59e0b" />
-                <span>Instant 1-Click .ZIP</span>
+              <div className="hero-focus-item">
+                <span className="hero-focus-label">EXPORT FORMAT</span>
+                <div className="hero-focus-val">
+                  <HardDrive size={15} color="#f59e0b" />
+                  <span>Instant 1-Click .ZIP</span>
+                </div>
               </div>
             </div>
 
             {/* Primary Action Button */}
-            <div>
+            <div className="hero-focus-btn-wrap">
               <Link
                 href="/workspace"
-                className="btn-pill-primary"
-                style={{
-                  padding: '0.75rem 1.45rem',
-                  fontSize: '0.875rem',
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap',
-                  justifyContent: 'center',
-                  width: '100%',
-                }}
+                className="btn-pill-primary hero-focus-cta-btn"
+                style={{ textDecoration: 'none' }}
               >
                 <FolderSync size={16} />
                 <span>Select Files to Organize</span>
@@ -231,26 +221,17 @@ export const HeroHeader: React.FC = () => {
 
           </div>
 
-          {/* Minimal Checklist Signals */}
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              gap: '1.75rem',
-              fontSize: '0.825rem',
-              color: 'var(--muted-foreground)',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          {/* Minimal Checklist Signals (Centered & Responsive) */}
+          <div className="hero-signals-bar">
+            <div className="hero-signal-item">
               <Check size={15} color="#10b981" />
               <span>100% In-Memory Processing</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <div className="hero-signal-item">
               <Check size={15} color="#10b981" />
               <span>Zero Cloud Uploads</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <div className="hero-signal-item">
               <Check size={15} color="#10b981" />
               <span>Instant ZIP Export</span>
             </div>

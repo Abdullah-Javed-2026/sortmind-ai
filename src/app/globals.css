@@ -1162,12 +1162,87 @@ body {
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 1.25rem 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto;
-  align-items: center;
-  gap: 1.25rem;
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 1.75rem;
+  width: 100%;
+}
+
+.hero-focus-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.hero-focus-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 0.95rem;
+  background-color: var(--card-inner);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  min-width: 0;
+}
+
+.hero-focus-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--subtle-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-focus-val {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-focus-btn-wrap {
+  width: 100%;
+}
+
+.hero-focus-cta-btn {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.9rem;
+  justify-content: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* 2nd Image: Checklist Signals Centered & Responsive */
+.hero-signals-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.825rem;
+  color: var(--muted-foreground);
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-signal-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
 }
 
 /* Responsive Breakpoints */
@@ -1198,8 +1273,16 @@ body {
     border: 1px solid var(--border);
     border-radius: var(--radius-pill);
   }
-  .hero-interactive-card {
+}
+
+@media (max-width: 640px) {
+  .hero-focus-row {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .hero-signals-bar {
+    gap: 0.75rem 1.25rem;
+    justify-content: center;
   }
 }
 
