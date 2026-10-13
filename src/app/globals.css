@@ -1114,13 +1114,15 @@ body {
 }
 
 .hero-nav-arrow {
-  color: var(--subtle-foreground);
-  transition: transform 0.15s ease;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-nav-item:hover .hero-nav-arrow {
-  color: var(--primary);
-  transform: translateX(3px);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .hero-split-content-col {
@@ -1133,7 +1135,7 @@ body {
 .hero-content-topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;

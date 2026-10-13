@@ -12,10 +12,10 @@ export const HeroHeader: React.FC = () => {
   const { toggleTheme, isDark, mounted } = useTheme();
 
   const navLinks = [
-    { num: '01', label: 'WORKSPACE', href: '/workspace', isApp: true },
-    { num: '02', label: 'HOW IT WORKS', href: '/#workflow' },
-    { num: '03', label: 'CAPABILITIES', href: '/#capabilities' },
-    { num: '04', label: 'SECURITY & ROADMAP', href: '/#security' },
+    { id: 'workspace', label: 'WORKSPACE', href: '/workspace', isApp: true },
+    { id: 'workflow', label: 'HOW IT WORKS', href: '/#workflow' },
+    { id: 'capabilities', label: 'CAPABILITIES', href: '/#capabilities' },
+    { id: 'security', label: 'SECURITY & ROADMAP', href: '/#security' },
   ];
 
   return (
@@ -29,9 +29,9 @@ export const HeroHeader: React.FC = () => {
             ========================================================================= */}
         <aside className="hero-split-nav-col">
           
-          {/* Top Brand & Version Block */}
+          {/* Top Brand Block */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
               <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
                 <img
                   src="/logo.png"
@@ -44,24 +44,9 @@ export const HeroHeader: React.FC = () => {
                   }}
                 />
               </Link>
-
-              <span
-                style={{
-                  fontSize: '0.7rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.04em',
-                  padding: '0.2rem 0.55rem',
-                  borderRadius: '9999px',
-                  backgroundColor: 'var(--card)',
-                  border: '1px solid var(--border)',
-                  color: 'var(--muted-foreground)',
-                }}
-              >
-                v1.0 LOCAL
-              </span>
             </div>
 
-            <div style={{ marginBottom: '1.25rem' }}>
+            <div style={{ marginBottom: '1.5rem' }}>
               <h2
                 style={{
                   fontSize: '1.15rem',
@@ -85,35 +70,33 @@ export const HeroHeader: React.FC = () => {
               />
             </div>
 
-            {/* Numbered Navigation Links List (Matching 01, 02, 03... from demo image) */}
+            {/* Navigation Links List (Clean labels without numbering) */}
             <nav className="hero-nav-list">
               {navLinks.map((item) => (
                 <Link
-                  key={item.num}
+                  key={item.id}
                   href={item.href}
                   className="hero-nav-item"
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                    <span className="hero-nav-num">{item.num}.</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <span className="hero-nav-label">{item.label}</span>
+                    {item.isApp && (
+                      <span
+                        style={{
+                          fontSize: '0.65rem',
+                          fontWeight: 700,
+                          backgroundColor: 'var(--primary-soft)',
+                          color: 'var(--primary)',
+                          padding: '0.1rem 0.45rem',
+                          borderRadius: '9999px',
+                        }}
+                      >
+                        APP
+                      </span>
+                    )}
                   </div>
 
-                  {item.isApp ? (
-                    <span
-                      style={{
-                        fontSize: '0.65rem',
-                        fontWeight: 700,
-                        backgroundColor: 'var(--primary-soft)',
-                        color: 'var(--primary)',
-                        padding: '0.1rem 0.45rem',
-                        borderRadius: '9999px',
-                      }}
-                    >
-                      APP
-                    </span>
-                  ) : (
-                    <ArrowRight size={13} className="hero-nav-arrow" />
-                  )}
+                  <ArrowRight size={14} className="hero-nav-arrow" />
                 </Link>
               ))}
             </nav>
@@ -149,30 +132,10 @@ export const HeroHeader: React.FC = () => {
           
           {/* Top Bar of Hero: Pill Badge (Left) + 2 Buttons from Image 2 (Right) */}
           {/* Note: In normal flow, NOT sticky/fixed on scroll! */}
+          {/* Top Bar of Hero: 2 Action Buttons (Theme Toggle & Organize Files) */}
+          {/* Note: In normal flow, NOT sticky/fixed on scroll! */}
           <div className="hero-content-topbar">
-            
-            {/* Pill Badge Tag */}
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                backgroundColor: 'var(--card-inner)',
-                border: '1px solid var(--border)',
-                padding: '0.35rem 0.9rem',
-                borderRadius: '9999px',
-                fontSize: '0.775rem',
-                fontWeight: 600,
-                color: 'var(--muted-foreground)',
-                letterSpacing: '0.03em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <Sparkles size={13} color="var(--primary)" />
-              <span>THE LOCAL IN-MEMORY FILE ORGANIZER</span>
-            </div>
-
-            {/* Exactly the 2 Action Buttons from User Image 2 */}
+            {/* Exactly the 2 Action Buttons from User Image */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
               
               {/* Button 1: Theme Toggle (Sun / Moon) */}
