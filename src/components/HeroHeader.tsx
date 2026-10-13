@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FolderSync, Check } from 'lucide-react';
 
 interface HeroHeaderProps {
@@ -33,15 +34,14 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onLoadSamples, onScrollT
             marginTop: '2rem',
           }}
         >
-          <button
-            type="button"
+          <Link
+            href="/workspace"
             className="btn-pill-primary"
-            onClick={onScrollToWorkspace}
-            style={{ padding: '0.8rem 1.75rem', fontSize: '0.95rem' }}
+            style={{ padding: '0.8rem 1.75rem', fontSize: '0.95rem', textDecoration: 'none' }}
           >
             <FolderSync size={17} />
             <span>Select Files to Organize</span>
-          </button>
+          </Link>
         </div>
 
         {/* Minimal Checklist Signals (Zero founder name, clean text) */}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Sun, Moon, Download, Menu, X } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -28,7 +29,7 @@ export const Navbar: React.FC = () => {
       <header className={`navbar-floating-inner ${isScrolled ? 'scrolled' : 'at-top'}`}>
         
         {/* Left: Just the Logo Image (No extra text as requested) */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
             src="/logo.png"
             alt="SortMind AI"
@@ -41,7 +42,7 @@ export const Navbar: React.FC = () => {
               display: 'block',
             }}
           />
-        </a>
+        </Link>
 
         {/* Center: Navigation Links */}
         <nav
@@ -54,10 +55,10 @@ export const Navbar: React.FC = () => {
           }}
           className="desktop-nav"
         >
-          <a href="#workspace" className="btn-pill-ghost">Workspace</a>
-          <a href="#workflow" className="btn-pill-ghost">How It Works</a>
-          <a href="#capabilities" className="btn-pill-ghost">Capabilities</a>
-          <a href="#security" className="btn-pill-ghost">Security</a>
+          <Link href="/workspace" className="btn-pill-ghost">Workspace</Link>
+          <a href="/#workflow" className="btn-pill-ghost">How It Works</a>
+          <a href="/#capabilities" className="btn-pill-ghost">Capabilities</a>
+          <a href="/#security" className="btn-pill-ghost">Security</a>
         </nav>
 
         {/* Right: Theme Toggle (Sun/Moon) + Action Button */}
@@ -79,14 +80,14 @@ export const Navbar: React.FC = () => {
           </button>
 
           {/* Clean Action Pill */}
-          <a
-            href="#workspace"
+          <Link
+            href="/workspace"
             className="btn-pill-primary"
             style={{ textDecoration: 'none' }}
           >
             <Download size={15} />
             <span>Organize Files</span>
-          </a>
+          </Link>
 
           {/* Mobile Menu Toggle Button */}
           <button
@@ -117,29 +118,29 @@ export const Navbar: React.FC = () => {
             gap: '0.85rem',
           }}
         >
-          <a
-            href="#workspace"
+          <Link
+            href="/workspace"
             onClick={() => setMobileMenuOpen(false)}
             style={{ color: 'var(--foreground)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}
           >
             Workspace
-          </a>
+          </Link>
           <a
-            href="#workflow"
+            href="/#workflow"
             onClick={() => setMobileMenuOpen(false)}
             style={{ color: 'var(--foreground)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}
           >
             How It Works
           </a>
           <a
-            href="#capabilities"
+            href="/#capabilities"
             onClick={() => setMobileMenuOpen(false)}
             style={{ color: 'var(--foreground)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}
           >
             Capabilities
           </a>
           <a
-            href="#security"
+            href="/#security"
             onClick={() => setMobileMenuOpen(false)}
             style={{ color: 'var(--foreground)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}
           >
